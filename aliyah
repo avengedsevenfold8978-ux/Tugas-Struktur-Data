@@ -1,0 +1,50 @@
+# Program penilaian mahasiswa (versi lebih lengkap)
+
+def hitung_rata(nilai_uts, nilai_uas):
+    return (nilai_uts + nilai_uas) / 2
+
+
+def tentukan_grade(rata):
+    if rata > 85:
+        return "A"
+    elif rata > 75:
+        return "B"
+    elif rata > 65:
+        return "C"
+    else:
+        return "D"
+
+
+def tampilkan_hasil(nama, npm, jurusan, uts, uas, rata, grade):
+    print("\n=== HASIL PENILAIAN ===")
+    print(f"Nama     : {nama}")
+    print(f"NPM      : {npm}")
+    print(f"Jurusan  : {jurusan}")
+    print(f"Nilai UTS: {uts}")
+    print(f"Nilai UAS: {uas}")
+    print(f"Rata-rata: {rata:.2f}")
+    print(f"Grade    : {grade}")
+
+
+def main():
+    print("=== Input Data Mahasiswa ===")
+    
+    nama = input("Masukkan nama      : ")
+    npm = input("Masukkan NPM       : ")
+    jurusan = input("Masukkan jurusan   : ")
+    
+    try:
+        uts = float(input("Masukkan nilai UTS : "))
+        uas = float(input("Masukkan nilai UAS : "))
+        
+        rata = hitung_rata(uts, uas)
+        grade = tentukan_grade(rata)
+        
+        tampilkan_hasil(nama, npm, jurusan, uts, uas, rata, grade)
+        
+    except ValueError:
+        print("Nilai harus berupa angka ya!")
+
+
+# Jalankan program
+main()
